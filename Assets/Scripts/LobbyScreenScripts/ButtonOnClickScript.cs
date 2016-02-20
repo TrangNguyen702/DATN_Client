@@ -52,6 +52,10 @@ public class ButtonOnClickScript : MonoBehaviour
             GameObject.Find("TabRoom").GetComponent<UIToggledObjects>().activate[0] = GameObject.Find("ContentRooms");
             GameObject.Find("Grid").GetComponent<UIGrid>().Reposition();
         }
+        else if (gameObject.tag == "HandleClickRoomRow")
+        {
+            Debug.Log("vua click vao phong co ten la: " + gameObject.transform.parent.transform.Find("RoomName").GetComponent<UILabel>().text);
+        }
     }
 
     // Update is called once per frame
