@@ -54,7 +54,17 @@ public class ButtonOnClickScript : MonoBehaviour
         }
         else if (gameObject.tag == "HandleClickRoomRow")
         {
-            Debug.Log("vua click vao phong co ten la: " + gameObject.transform.parent.transform.Find("RoomName").GetComponent<UILabel>().text);
+            string n = gameObject.transform.parent.transform.Find("RoomName").GetComponent<UILabel>().text;
+            ((GameObject)GameObject.Find("ContentRooms")).SetActive(false);
+            ((GameObject)GameObject.Find("Window")).transform.Find("ContentRoom").gameObject.SetActive(true);
+            GameObject.Find("TabRoom").GetComponent<UIToggledObjects>().activate[0] = GameObject.Find("ContentRoom");
+            GameObject.Find("RoomTitle").GetComponent<UILabel>().text = n;
+        }
+        else if (gameObject.name == "BackToTabRooms_ContentRoom")
+        {
+            ((GameObject)GameObject.Find("ContentRoom")).SetActive(false);
+            ((GameObject)GameObject.Find("Window")).transform.Find("ContentRooms").gameObject.SetActive(true);
+            GameObject.Find("TabRoom").GetComponent<UIToggledObjects>().activate[0] = GameObject.Find("ContentRooms");
         }
     }
 
