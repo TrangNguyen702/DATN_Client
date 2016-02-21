@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class ButtonOnClickScript : MonoBehaviour
 {
+    public UIInput RoomNametxb;
     public UIInput HostNametxb;
     public UIInput Numbertxb;
     public UIInput Passwordtxb;
@@ -13,9 +14,9 @@ public class ButtonOnClickScript : MonoBehaviour
     // Use this for initialization
     private void Start()
     {
-        HostNametxb = GameObject.Find("HostTextbox").GetComponent<UIInput>();
-        Numbertxb = GameObject.Find("NumberTextbox").GetComponent<UIInput>();
-        Passwordtxb = GameObject.Find("PasswordTextbox").GetComponent<UIInput>();
+        //HostNametxb = GameObject.Find("HostTextbox").GetComponent<UIInput>();
+        //Numbertxb = GameObject.Find("NumberTextbox").GetComponent<UIInput>();
+        //Passwordtxb = GameObject.Find("PasswordTextbox").GetComponent<UIInput>();
     }
 
     private void OnClick()
@@ -34,11 +35,13 @@ public class ButtonOnClickScript : MonoBehaviour
         }
         else if (gameObject.name == "CreateButton")
         {
-            Debug.Log(HostNametxb.text + Numbertxb.text + Passwordtxb.text);
+            //  Debug.Log(HostNametxb.text + Numbertxb.text + Passwordtxb.text);
             GameObject mygameobject = (GameObject)Instantiate(RowRoomPrefab, new Vector3(this.transform.position.x,
                 this.transform.position.y, this.RowRoomPrefab.transform.position.z), Quaternion.identity);
             //   if (Selection.activeTransform != null)
-            mygameobject.transform.Find("RoomName").GetComponent<UILabel>().text = "ashdfkj";
+            mygameobject.transform.Find("RoomName").GetComponent<UILabel>().text = RoomNametxb.text;
+            mygameobject.transform.Find("Current_max").GetComponent<UILabel>().text = Numbertxb.text;
+            mygameobject.transform.Find("Host").GetComponent<UILabel>().text = HostNametxb.text;
             mygameobject.transform.localScale = new Vector3(1, 1, 1);
             //  NGUITools.AddChild((GameObject.Find("Window")).transform.Find("Grid").gameObject, mygameobject);
 
