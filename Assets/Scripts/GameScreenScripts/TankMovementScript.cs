@@ -10,7 +10,6 @@ public class TankMovementScript : MonoBehaviour
     public int speedgo;
     public int speedrotation;
     public Vector3 move_vector;
-    public GameObject bullet_prefab;
 
     private void Start()
     {
