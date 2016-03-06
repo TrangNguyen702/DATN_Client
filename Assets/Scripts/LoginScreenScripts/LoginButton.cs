@@ -1,5 +1,7 @@
 ﻿using BestHTTP;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using SimpleJSON;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -8,7 +10,7 @@ using UnityEngine.UI;
 
 public class LoginButton : MonoBehaviour
 {
-    private string LoginUrl = "http://192.168.1.69:8080/api/login";
+    private string LoginUrl = "http://192.168.1.104:3000/api/users/login";
     public UIInput username;
     public UIInput password;
 
@@ -30,21 +32,18 @@ public class LoginButton : MonoBehaviour
 
     private void OnRequestFinished(HTTPRequest originalRequest, HTTPResponse response)
     {
-        var res = JsonConvert.DeserializeObject<Response>(response.DataAsText);
-        if (res.success == -1)
-        {
-            Debug.Log(res.message);
-        }
-        else if (res.success == 0)
-        {
-            AutoFade.LoadLevel("menuscreen", 1.2f);
-            // SceneManager.LoadScene(1);
-        }
-    }
+        var json = JSON.Parse(response.DataAsText);
 
-    public class Response
-    {
-        public int success;
-        public string message = "";
+        if (response.StatusCode == 200)
+        {
+            Debug.Log(json["id"].Value);
+            PlayerPrefs.SetString("token", json["id"].Value);
+            PlayerPrefs.Save();
+            AutoFade.LoadLevel("lobbyScreen", 1.2f);
+        }
+        else
+        {
+            //   Debug.Log("Login failed !");
+        }
     }
 }

@@ -1,5 +1,12 @@
-﻿using System.Collections;
+﻿using BestHTTP;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using SimpleJSON;
+using System;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ButtonOnClickScript : MonoBehaviour
 {
@@ -7,17 +14,25 @@ public class ButtonOnClickScript : MonoBehaviour
     public UIInput HostNametxb;
     public UIInput Numbertxb;
     public UIInput Passwordtxb;
+    // public UILabel eventtext;
 
     public GameObject RowRoomPrefab;
     private int RoomNumber = 1;
+    //   private string EventUrl = "http://192.168.1.104:3000/api/events";
 
     // Use this for initialization
     private void Start()
     {
-        //HostNametxb = GameObject.Find("HostTextbox").GetComponent<UIInput>();
-        //Numbertxb = GameObject.Find("NumberTextbox").GetComponent<UIInput>();
-        //Passwordtxb = GameObject.Find("PasswordTextbox").GetComponent<UIInput>();
+        //HTTPRequest request = new HTTPRequest(new Uri(EventUrl + PlayerPrefs.GetString("token")), HTTPMethods.Get, OnRequestFinished);
+
+        //request.Send();
     }
+
+    //private void OnRequestFinished(HTTPRequest originalRequest, HTTPResponse response)
+    //{
+    //    var json = JSON.Parse(response.DataAsText);
+    //    eventtext.text = json["description"];
+    //}
 
     private void OnClick()
     {

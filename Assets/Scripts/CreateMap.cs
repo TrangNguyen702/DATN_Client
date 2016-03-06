@@ -7,15 +7,17 @@ public class CreateMap : MonoBehaviour
     public GameObject MatrixMap;
     public GameObject RainForest;
     public GameObject Desert;
+    public int index;
 
     // Use this for initialization
     private void Start()
     {
-        int index = clickhd.mapSelectedIndex;
+        index = 0;
+        //int index = clickhd.mapSelectedIndex;
 
         if (index == 0)
         {
-            Instantiate(HomeTownMap, new Vector3(0, 0, 0), Quaternion.identity);
+            Instantiate(HomeTownMap, new Vector3(-10, 10, 0), Quaternion.identity);
         }
         else if (index == 1)
         {

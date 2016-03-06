@@ -1,0 +1,38 @@
+[
+ {"code":"0",
+ "name":"Yellow", 
+ "strength":"100",
+ "speed":"100", 
+ "visibility":"100", 
+ "armor":"100", 
+ "avatar":"http://joeplay.com/games/images/Awesome-Tanks-2p.png",
+ "description":"Tank test", 
+ "id":"56ca87aa89263b41140c2c09"}, 
+ 
+ {"code":"1", 
+ "name":"Purple",
+ "strength":"150",
+ "speed":"80", 
+ "visibility":"100",
+ "armor":"70",
+ "avatar":"http://0.0.0.0:3000/api//containers/files/download/dau%20lua.png",
+ "id":"56d7dbc138e787080c96656b"},
+ 
+ {"code":"2",
+ "name":"Green",
+ "strength":"75",
+ "speed":"150",
+ "visibility":"100",
+ "armor":"60", 
+ "avatar":"http://0.0.0.0:3000/api//containers/files/download/dau%20lua.png", 
+ "id":"56d7dbe338e787080c96656c"}, 
+ 
+ {"code":"3",
+ "name":"Blue",
+ "strength":"120",
+ "speed":"100", 
+ visibility":"100",
+ "armor":"90",
+ "avatar":"http://0.0.0.0:3000/api//containers/files/download/dau%20lua.png", 
+ "id":"56d7dbff38e787080c96656d"}
+ ]

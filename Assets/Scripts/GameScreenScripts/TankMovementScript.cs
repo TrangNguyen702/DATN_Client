@@ -4,6 +4,13 @@ using UnityEngine;
 public class TankMovementScript : MonoBehaviour
 {
     // Use this for initialization
+
+    public int performancestrength;
+    public int performanceArmor;
+    public int performanceSpeed;
+
+    public int typeofhead;
+
     public GameObject thebody;
 
     public GameObject thehead;
@@ -13,10 +20,18 @@ public class TankMovementScript : MonoBehaviour
 
     private void Start()
     {
-        speedgo = 2;
+        speedgo = 5;
         speedrotation = 4;
-        thebody = (GameObject)GameObject.Find("Body");
-        thehead = (GameObject)GameObject.Find("Head");
+        //thebody = (GameObject)GameObject.Find("Body");
+        //thehead = (GameObject)GameObject.Find("Head");
+        Transform[] allChildren = GetComponentsInChildren<Transform>();
+        foreach (Transform t in allChildren)
+        {
+            if (t != null && t.gameObject.name == "Body")
+                thebody = t.gameObject;
+            else if (t != null && t.gameObject.name == "Head")
+                thehead = t.gameObject;
+        }
     }
 
     // Update is called once per frame
