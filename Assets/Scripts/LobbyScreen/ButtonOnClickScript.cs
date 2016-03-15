@@ -18,7 +18,7 @@ public class ButtonOnClickScript : MonoBehaviour
 
     public GameObject RowRoomPrefab;
     private int RoomNumber = 1;
-    //   private string EventUrl = "http://192.168.1.104:3000/api/events";
+    //   private string EventUrl = "http://192.168.1.22:3000/api/events";
 
     // Use this for initialization
     private void Start()

@@ -10,8 +10,8 @@ using UnityEngine.UI;
 
 public class SignupButton : MonoBehaviour
 {
-    private string SignupUrl = "http://192.168.1.104:3000/api/users";
-    private string CharacterUrl = "http://192.168.1.104:3000/api/characters";
+    private string SignupUrl = "http://192.168.1.22:3000/api/users";
+    private string CharacterUrl = "http://192.168.1.22:3000/api/characters";
     public UIInput username;
     public UIInput password;
     public UIInput confirmPassword;
@@ -27,7 +27,7 @@ public class SignupButton : MonoBehaviour
     private void Start()
     {
         //lay character ve
-        HTTPRequest request = new HTTPRequest(new Uri(CharacterUrl), HTTPMethods.Get, OnCharacterFinished);
+        HTTPRequest request = new HTTPRequest(new Uri(APIUrl.UrlCharater), HTTPMethods.Get, OnCharacterFinished);
         request.Send();
 
         username = GameObject.Find("usernameSignup").GetComponent<UIInput>();
@@ -44,7 +44,7 @@ public class SignupButton : MonoBehaviour
         {
             return;
         }
-        HTTPRequest request = new HTTPRequest(new Uri(SignupUrl), HTTPMethods.Post, OnRequestFinished);
+        HTTPRequest request = new HTTPRequest(new Uri(APIUrl.UrlSignup), HTTPMethods.Post, OnRequestFinished);
         request.AddField("username", username.text);
         request.AddField("password", password.text);
         request.AddField("score", "0");
@@ -79,6 +79,7 @@ public class SignupButton : MonoBehaviour
                     t.GetComponent<UILabel>().text = "Speed: " + json[i]["speed"] + "\nStrength: " + json[i]["strength"];
                 else if (t != null && t.gameObject.name == "2D Sprite")
                 {
+
                     new HTTPRequest(new Uri(json[i]["avatar"]), (request, res)
                     =>
                     {
